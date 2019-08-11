@@ -11,7 +11,7 @@ const rootDir = __dirname;
 @ServerSettings({
   rootDir,
   acceptMimes: ["application/json"],
-  httpPort: process.env.PORT || 3003,
+  httpPort: process.env.PORT || 3000,
   httpsPort: false,
   mount: {
     "/api/v1": `${rootDir}/controllers/**/**.{js,ts}`,
