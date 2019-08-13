@@ -9,7 +9,7 @@
     "coverage": "npm run test-cov && npm run test-remap",
     "postinstall": "npm run build",
     "tslint": "tslint ./*.ts ./lib/*.ts",
-    "test": "mocha --reporter spec --check-leaks --bail test/",
+    "test": "mocha -r ts-node/register test/**/**.ts",
     "tsc": "tsc --project tsconfig.json",
     "tsc:w": "tsc -w",
     "start": "nodemon --watch '**/*.ts' --ignore 'node_modules/**/*' --exec ts-node src/app.ts"
@@ -17,8 +17,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@tsed/testing": "^5.25.1",
+    "@types/chai": "^4.2.0",
     "@types/express": "^4.17.0",
+    "@types/mocha": "^5.2.7",
+    "@types/supertest": "^2.0.8",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
+    "supertest": "^4.0.2",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
