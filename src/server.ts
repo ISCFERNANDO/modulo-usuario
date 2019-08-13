@@ -3,6 +3,7 @@ import {
   ServerSettings,
   GlobalAcceptMimesMiddleware,
 } from "@tsed/common";
+import "@tsed/swagger";
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const compress = require("compression");
@@ -16,6 +17,11 @@ const rootDir = __dirname;
   mount: {
     "/api/v1": `${rootDir}/controllers/**/**.{js,ts}`,
   },
+  swagger: [
+    {
+      path: "/api-docs-v1"
+    }
+  ]
 })
 export class Server extends ServerLoader {
   /**
