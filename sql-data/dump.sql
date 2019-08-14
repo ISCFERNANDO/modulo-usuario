@@ -58,7 +58,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`user_moduleDev`@`localhost` PROCEDURE `delete_accesse`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_accesse`(
 	IN _id INT
 )
 BEGIN
@@ -88,7 +88,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`user_moduleDev`@`localhost` PROCEDURE `get_accese_by_id`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_accese_by_id`(
 	IN _id INT
 )
 BEGIN
@@ -118,7 +118,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`user_moduleDev`@`localhost` PROCEDURE `get_accesses`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_accesses`()
 BEGIN
 	SELECT id, name FROM accesses WHERE visible = 1;
 END ;;
@@ -137,7 +137,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`user_moduleDev`@`localhost` PROCEDURE `insert_accesse`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_accesse`(
 	IN _name VARCHAR(30)
 )
 BEGIN
@@ -169,7 +169,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`user_moduleDev`@`localhost` PROCEDURE `update_accesse`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_accesse`(
 	IN _id INT,
 	IN _name VARCHAR(30)
 )
@@ -209,5 +209,4 @@ DELIMITER ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-08-13  1:05:23
-CREATE USER 'user_moduleDev'@'localhost' IDENTIFIED BY 'user_module123Dev';
-GRANT ALL PRIVILEGES ON user_module.* TO 'user_moduleDev'@'%';
+
