@@ -7,10 +7,10 @@ jobs:
       - image: circleci/mysql:8.0.4
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
-          MYSQL_ROOT_PASSWORD: luis123
+          MYSQL_ROOT_PASSWORD: user_module123Dev
           MYSQL_DATABASE: user_module
-          MYSQL_USER: luis
-          MYSQL_PASSWORD: luis123
+          MYSQL_USER: user_moduleDev
+          MYSQL_PASSWORD: user_module123Dev
     
     steps:
       - checkout
@@ -41,12 +41,12 @@ jobs:
       - run:
           name: Import dump data;
           command: |
-            mysql -h 127.0.0.1 -u root -pluis123 user_module < sql-data/dump.sql
+            mysql -h 127.0.0.1 -u root -user_module123Dev user_module < sql-data/dump.sql
 
       - run:
           name: Run an example query
           command: |
-            mysql -h 127.0.0.1 -u root -pluis123 --execute="SELECT * FROM user_module.accesses"
+            mysql -h 127.0.0.1 -u root -user_module123Dev --execute="SELECT * FROM user_module.accesses"
 
       - run: npm install
 
