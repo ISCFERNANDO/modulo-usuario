@@ -41,12 +41,12 @@ jobs:
       - run:
           name: Import dump data;
           command: |
-            mysql -h 127.0.0.1 -u root -user_module123Dev user_module < sql-data/dump.sql
+            mysql -h 127.0.0.1 -u root -uuser_module123Dev user_module < sql-data/dump.sql
 
       - run:
           name: Run an example query
           command: |
-            mysql -h 127.0.0.1 -u root -user_module123Dev --execute="SELECT * FROM user_module.accesses"
+            mysql -h 127.0.0.1 -u root -uuser_module123Dev --execute="SELECT * FROM user_module.accesses"
 
       - run: npm install
 
