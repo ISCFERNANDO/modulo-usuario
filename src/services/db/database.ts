@@ -2,9 +2,9 @@ import * as mysql from "mysql";
 import { DB } from "../../settings";
 
 export class DatabaseService {
-  private pool: any;
+  private connection: any;
   constructor() {
-    this.pool = mysql.createPool({
+    this.connection = mysql.createConnection({
       connectionLimit: 10,
       host: DB.MYSQL.HOST,
       user: DB.MYSQL.USERNAME,
@@ -15,13 +15,13 @@ export class DatabaseService {
   }
 
   async query(query: string, data?: any): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.pool.getConnection(async (error, connection) => {
-        if (error) return reject(error);
-        connection.query(query, data, (error, result) => {
-          if (error) return reject(error);
-          resolve(result[0]);
-        });
+    return new Promise(async (resolve, reject) => {
+      this.connection.query(query, data, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        this.connection.end();
+        resolve(result[0]);
       });
     });
   }
