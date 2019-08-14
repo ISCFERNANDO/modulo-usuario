@@ -210,4 +210,4 @@ DELIMITER ;
 
 -- Dump completed on 2019-08-13  1:05:23
 CREATE USER 'user_moduleDev'@'localhost' IDENTIFIED BY 'user_module123Dev';
-GRANT ALL PRIVILEGES ON user_module.* TO 'user_moduleDev'@'localhost';
+GRANT ALL PRIVILEGES ON user_module.* TO 'user_moduleDev'@'%';
